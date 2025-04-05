@@ -14,7 +14,6 @@ public class Patient extends Person{
 
     @Override
     public String getInfo() {
-        return super.getInfo() + "Age             : " + age +
-                "Symptoms        : " + symptoms;
+        return super.getInfo() + "Age           : " + age + "\nSymptoms      : " + symptoms;
     }
 }

@@ -12,8 +12,8 @@ public abstract class Person implements Checkup {
 
     public String getInfo() {
         this.info = String.format("""
-                ID              : %s
-                Name            : %s
+                ID            : %s
+                Name          : %s
                 """, this.id, this.name);
 
         return this.info;

@@ -5,11 +5,13 @@ public class HospitalPatientManagementSystem {
 
     private final Scanner sn;
     private final ArrayList<Person> doctorList;
+    private final ArrayList<Person> patientList;
 
     HospitalPatientManagementSystem(){
 
         this.sn = new Scanner(System.in);
         this.doctorList = new ArrayList<>();
+        this.patientList = new ArrayList<>();
     }
 
     static void dashboard(){
@@ -39,13 +41,13 @@ public class HospitalPatientManagementSystem {
 
         String id, name, specialization;
 
-        System.out.print("Enter ID : ");
+        System.out.print("Enter ID      : ");
         id = sn.nextLine();
 
-        System.out.print("Enter Name : ");
+        System.out.print("Enter Name    : ");
         name = sn.nextLine();
 
-        System.out.print("Enter Specialization : ");
+        System.out.print("Special for   : ");
         specialization = sn.nextLine();
 
         try{
@@ -67,12 +69,49 @@ public class HospitalPatientManagementSystem {
         }
     }
 
+    void patient(){
+
+        String id, name, symptoms;
+        int age;
+
+        System.out.print("Enter ID      : ");
+        id = sn.nextLine();
+
+        System.out.print("Enter Name    : ");
+        name = sn.nextLine();
+
+        System.out.print("Enter Age     : ");
+        age = sn.nextInt();
+        sn.nextLine();
+
+        System.out.print("Symptoms      : ");
+        symptoms = sn.nextLine();
+
+        try{
+            Person newPatient = new Patient(id, name, age, symptoms);
+            patientList.add(newPatient);
+            System.out.println("Patient added successfully!\n");
+
+        } catch (Exception e){
+
+            System.out.println("Patient creation error");
+        }
+    }
+
+    void showPatients(){
+
+        for (Person patient : patientList){
+            System.out.println(patient.getInfo() + "\n");
+        }
+    }
+
     static void system() {
 
         HospitalPatientManagementSystem system = new HospitalPatientManagementSystem();
 
         while (true) {
-            System.out.print("Enter your key : ");
+
+            System.out.print("Enter key     : ");
             String input = system.sn.nextLine();
 
             switch (input) {
@@ -80,17 +119,28 @@ public class HospitalPatientManagementSystem {
                     system.doctor();
                     break;
 
+                case "2":
+                    system.patient();
+                    break;
+
+                case "3":
+                    break;
+
+                case "4":
+                    system.showPatients();
+                    break;
+
                 case "5":
                     system.showDoctors();
                     break;
 
                 case "6":
-                    System.out.println("Exiting... Thanks!");
+                    System.out.println("Thank you!");
                     system.sn.close();
                     return;
 
                 default:
-                    System.out.println("Invalid option. Try again.");
+                    System.out.println("Invalid input");
             }
         }
     }
@@ -99,6 +149,5 @@ public class HospitalPatientManagementSystem {
 
         dashboard();
         system();
-
     }
 }

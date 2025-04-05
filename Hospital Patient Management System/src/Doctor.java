@@ -13,6 +13,6 @@ public class Doctor extends Person {
     @Override
     public String getInfo() {
         
-        return super.getInfo() + "Specialization  : " + specialization;
+        return super.getInfo() + "Special for   : " + specialization;
     }
 }
