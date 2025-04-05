@@ -57,7 +57,6 @@ public class HospitalPatientManagementSystem {
             System.out.println("Doctor added successfully!\n");
 
         } catch (Exception e){
-
             System.out.println("Doctor creation error");
         }
     }
@@ -149,5 +148,6 @@ public class HospitalPatientManagementSystem {
 
         dashboard();
         system();
+
     }
 }

@@ -1,4 +1,4 @@
 public interface Checkup {
 
-    void performCheckup();
+    String getInfo();
 }

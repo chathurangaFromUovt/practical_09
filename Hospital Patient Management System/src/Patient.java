@@ -10,9 +10,6 @@ public class Patient extends Person{
     }
 
     @Override
-    public void performCheckup() {}
-
-    @Override
     public String getInfo() {
         return super.getInfo() + "Age           : " + age + "\nSymptoms      : " + symptoms;
     }

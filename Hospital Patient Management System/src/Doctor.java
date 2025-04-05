@@ -8,9 +8,6 @@ public class Doctor extends Person {
     }
 
     @Override
-    public void performCheckup() {}
-
-    @Override
     public String getInfo() {
         
         return super.getInfo() + "Special for   : " + specialization;
